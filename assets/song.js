@@ -1,0 +1,24 @@
+(function(){
+var S=window.SONG;
+var SHARP=["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"],FLAT=["C","Db","D","Eb","E","F","Gb","G","Ab","A","Bb","B"];
+var KEYS=[["C",0],["D",2],["E",4],["F",5],["G",7],["A",9],["Bb",10]],FLATKEYS=[5,10,3,8],OFF=[0,2,4,5,7,9,11];
+var key=0;KEYS.forEach(function(k){if(k[0]===S.key)key=k[1]});
+function nm(i){return (FLATKEYS.indexOf(key)>-1?FLAT:SHARP)[((i%12)+12)%12]}
+function chord(t){var m=t.match(/^([1-7])(m?)([^\/]*)(?:\/([1-7]))?$/);if(!m)return t;
+  var r=nm(key+OFF[m[1]-1])+m[2]+m[3];if(m[4])r+="/"+nm(key+OFF[m[4]-1]);return r}
+function render(){
+  document.getElementById("chart").innerHTML=S.sections.map(function(s){
+    return '<div class="sec"><h3>'+s.name+'</h3>'+s.lines.map(function(l){
+      return '<div class="ln"><div class="ch">'+l.c.split(" ").map(function(t){return '<span class="c">'+chord(t)+'</span>'}).join("")+'<div class="nums">'+l.c+'</div></div>'+(l.t?'<p>'+l.t+'</p>':'')+'</div>';
+    }).join("")+'</div>';
+  }).join("");
+  [].forEach.call(document.querySelectorAll("#keys button"),function(b){b.setAttribute("aria-pressed",String(+b.dataset.k===key))});
+}
+document.getElementById("songTitle").textContent=S.title;
+document.getElementById("songMeta").innerHTML='<span class="meta">'+S.writers+'</span><br><span class="meta">Original key: '+S.key+'. Order: '+S.structure+'.</span>';
+document.title=S.title+" chords";
+var kb=document.getElementById("keys");
+KEYS.forEach(function(k){var b=document.createElement("button");b.textContent=k[0];b.dataset.k=k[1];
+  b.addEventListener("click",function(){key=k[1];render()});kb.appendChild(b)});
+render();
+})();

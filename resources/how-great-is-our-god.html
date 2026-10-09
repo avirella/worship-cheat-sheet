@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Song chords</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Young+Serif&family=Alfa+Slab+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="wrap hero-in">
+    <div>
+      <h1>Worship guitar<span>chord cheat sheet</span></h1>
+      <p>Progressions, capo shortcuts, and playing tips for church guitarists. Pick a key below and every chord on the page updates.</p>
+    </div>
+    <svg class="guitar" viewBox="-30 -210 540 220" aria-hidden="true" focusable="false">
+      <defs><radialGradient id="gt" cx="50%" cy="62%" r="60%"><stop offset="0" stop-color="#EDB964"/><stop offset=".5" stop-color="#B8742E"/><stop offset="1" stop-color="#52300F"/></radialGradient></defs>
+      <g transform="rotate(-90)">
+      <rect x="88" y="30" width="24" height="230" fill="#3A2210"/>
+      <path d="M85 34L115 34L119 -14Q100 -24 81 -14Z" fill="#2B190C"/>
+      <g fill="#D8C08A"><circle cx="76" cy="-6" r="4"/><circle cx="76" cy="9" r="4"/><circle cx="76" cy="24" r="4"/><circle cx="124" cy="-6" r="4"/><circle cx="124" cy="9" r="4"/><circle cx="124" cy="24" r="4"/></g>
+      <rect x="90" y="34" width="20" height="215" fill="#160C05"/>
+      <path d="M90 58H110M90 86H110M90 112H110M90 136H110M90 158H110M90 178H110M90 196H110M90 213H110M90 228H110" stroke="#CDB880" stroke-width="1.4"/>
+      <rect x="90" y="34" width="20" height="3" fill="#EADFC4"/>
+      <path d="M100 228C140 228 164 250 160 288C158 315 140 328 150 350C178 372 192 400 186 432C178 488 140 500 100 500C60 500 22 488 14 432C8 400 22 372 50 350C60 328 42 315 40 288C36 250 60 228 100 228Z" fill="url(#gt)" stroke="#1E120A" stroke-width="5"/>
+      <circle cx="100" cy="318" r="36" fill="none" stroke="#F0D9A8" stroke-width="2" opacity=".7"/>
+      <circle cx="100" cy="318" r="31" fill="#120A05" stroke="#3A2210" stroke-width="3"/>
+      <rect x="72" y="440" width="56" height="11" rx="3" fill="#24130A"/>
+      <g stroke="#EDE6D4" stroke-width="1" opacity=".85"><path d="M92 37L76 446M95.2 37L85.6 446M98.4 37L95.2 446M101.6 37L104.8 446M104.8 37L114.4 446M108 37L124 446"/></g>
+</g>
+    </svg>
+  </div>
+</header>
+<div class="keybar" role="group" aria-label="Choose a key">
+  <div class="wrap"><b>Key</b><div class="keys" id="keys"></div></div>
+</div>
+<div class="wrap layout">
+<aside class="side"><nav id="menu" aria-label="Pages">
+<a href="../index.html#progressions" data-page="progressions">Progressions</a>
+<a href="../index.html#hymns" data-page="hymns">Hymn staples</a>
+<a href="../index.html#scale" data-page="scale">Chords in this key</a>
+<a href="../index.html#capo" data-page="capo">Capo shortcuts</a>
+<a href="../index.html#upgrades" data-page="upgrades">Chord upgrades</a>
+<a href="../index.html#strum" data-page="strum">Strumming</a>
+<a href="../index.html#team" data-page="team">Playing with a team</a>
+<a href="../resources/index.html" aria-current="page">Resources</a>
+</nav></aside>
+<main>
+<section class="page on">
+<p><a href="index.html">&larr; All resources</a></p>
+<h2 id="songTitle"></h2>
+<p class="lead" id="songMeta"></p>
+<div id="chart"></div>
+<p class="lead" style="margin-top:18px">Chord chart only. Pick a key above and every chord changes to match.</p>
+</section>
+</main>
+</div>
+<footer class="wrap"><p>Soli Deo gloria.</p></footer>
+<script>
+window.SONG={
+  title: "How Great Is Our God",
+  writers: "Chris Tomlin, Jesse Reeves, Ed Cash",
+  key: "C",
+  structure: "Verse 1, Chorus, Verse 2, Chorus, Bridge, Chorus",
+  sections: [
+    // c = chords as numbers (1 = key chord, m = minor, 1/7 = slash chord). t = lyric line (optional).
+    {name: "Verse", lines: [{c: "1 6m", t: ""}, {c: "4add9", t: ""}, {c: "1 6m", t: ""}, {c: "4add9", t: ""}]},
+    {name: "Chorus", lines: [{c: "1 1/7", t: ""}, {c: "6m 6m/5", t: ""}, {c: "4add9 5 1", t: ""}]},
+    {name: "Bridge", lines: [{c: "1 1/7 6m 6m/5", t: ""}, {c: "4add9 5 1", t: ""}]}
+  ]
+};
+</script>
+<script src="../assets/song.js"></script>
+</body>
+</html>

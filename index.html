@@ -7,73 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Young+Serif&family=Alfa+Slab+One&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#F3F5F8;--ink:#1B2A41;--muted:#55637A;--line:#D3DAE5;--accent:#2B4C9B;--gold:#B9812A;--chip:#E4EAF4;--chip-on:#2B4C9B;--chip-on-ink:#fff;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#151A23;--ink:#E7ECF4;--muted:#9AA8BD;--line:#2B3546;--accent:#8FADEF;--gold:#E0B060;--chip:#232C3B;--chip-on:#8FADEF;--chip-on-ink:#10141C}}
-:root[data-theme="dark"]{--bg:#151A23;--ink:#E7ECF4;--muted:#9AA8BD;--line:#2B3546;--accent:#8FADEF;--gold:#E0B060;--chip:#232C3B;--chip-on:#8FADEF;--chip-on-ink:#10141C}
-html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px);scroll-behavior:smooth}
-*,*::before,*::after{box-sizing:inherit}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Figtree,system-ui,-apple-system,"Segoe UI",sans-serif}
-.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
-header{padding:48px 0 24px}
-h1{font:400 clamp(2rem,6vw,3.1rem)/1.1 "Young Serif",Georgia,serif;margin:0 0 12px;letter-spacing:-.01em}
-header p{margin:0;max-width:56ch;color:var(--muted);font-size:1.05rem}
-.hero{position:relative;overflow:hidden;color:#F5E9D4;padding:22px 0 20px;border-bottom:4px solid #B9812A;background:radial-gradient(ellipse 40% 95% at 80% 55%,rgba(255,176,80,.4),transparent 70%),radial-gradient(ellipse 120% 100% at 50% 50%,transparent 45%,rgba(0,0,0,.65)),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.006 .5' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.1 -.35'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E"),repeating-linear-gradient(180deg,rgba(0,0,0,.55) 0 3px,rgba(255,255,255,.05) 3px 5px,transparent 5px 70px),repeating-linear-gradient(180deg,#3A2516 0 70px,#43291A 70px 140px,#33200F 140px 210px)}
-.hero-in{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:16px;align-items:center;position:relative}
-.hero h1{font:400 clamp(1.8rem,5vw,2.6rem)/1.02 "Alfa Slab One","Young Serif",Georgia,serif;margin:0 0 8px;color:#F5E9D4;text-shadow:3px 3px 0 #1A0E06}
-.hero h1 span{display:block;font-size:.5em;color:#E0A04A;margin-top:6px}
-.hero p{color:#E5D5B8;max-width:46ch;font-size:.98rem;line-height:1.45}
-.guitar{width:400px;height:auto;justify-self:end;transform:rotate(-5deg) translateY(4px);filter:drop-shadow(8px 14px 14px rgba(0,0,0,.6))}
-@media (max-width:860px){.hero{padding:22px 0 20px}.hero-in{grid-template-columns:1fr}.guitar{position:absolute;right:-60px;top:-6px;width:300px;opacity:.35;pointer-events:none}}
-.layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:0 44px;align-items:start}
-.side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 66px);padding:28px 0}
-.side a{display:block;padding:10px 14px;border-left:3px solid var(--line);color:var(--ink);text-decoration:none;font-weight:500}
-.side a:hover{background:var(--chip)}
-.side a[aria-current="page"]{border-left-color:var(--accent);background:var(--chip);font-weight:700}
-.page{display:none}
-.page.on{display:block}
-main section{padding-top:28px;min-height:50vh}
-@media (max-width:760px){.layout{display:block}.side{position:static;padding:14px 0 0}.side nav{display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px}.side a{white-space:nowrap;border-left:0;border-bottom:3px solid var(--line);padding:8px 12px}.side a[aria-current="page"]{border-bottom-color:var(--accent)}main section{padding-top:20px}}
-.keybar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0}
-.keybar .wrap{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.keybar b{font-weight:700;font-size:.95rem}
-.keys{display:flex;gap:6px;flex-wrap:wrap}
-.keys button{font:500 1rem Figtree,sans-serif;min-width:44px;height:40px;border:0;border-radius:6px;background:var(--chip);color:var(--ink);cursor:pointer}
-.keys button[aria-pressed="true"]{background:var(--chip-on);color:var(--chip-on-ink);font-weight:700}
-button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
-section{padding:44px 0 8px}
-h2{font:400 1.7rem/1.2 "Young Serif",Georgia,serif;margin:0 0 6px}
-.lead{margin:0 0 20px;color:var(--muted);max-width:62ch}
-.row{display:grid;grid-template-columns:minmax(0,190px) 1fr;gap:6px 24px;padding:16px 0;border-top:1px solid var(--line);align-items:center}
-.row:last-child{border-bottom:1px solid var(--line)}
-.nm{font-weight:700}
-.nm small{display:block;font-weight:400;color:var(--muted);font-size:.9rem}
-.ch{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.c{background:var(--chip);border-radius:6px;padding:4px 12px;font-weight:700;font-size:1.25rem;min-width:52px;text-align:center}
-.slash{color:var(--muted);font-weight:700}
-.nums{color:var(--muted);font-size:.9rem;width:100%}
-.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
-table{border-collapse:collapse;width:100%;min-width:520px}
-th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-weight:700;border-bottom:2px solid var(--ink)}
-td.maj{font-weight:700}
-.hl{background:var(--chip)}
-.capo td:first-child{font-weight:700}
-.easy{color:var(--gold);font-weight:700}
-.strum{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px;max-width:440px;margin:6px 0 4px}
-.strum span{text-align:center;padding:6px 0;border-radius:4px;background:var(--chip);font-weight:700;font-size:.95rem}
-.strum span.off{background:transparent;color:var(--muted);font-weight:400}
-.strum span.cnt{background:transparent;color:var(--muted);font-size:.75rem;font-weight:400;padding:0}
-.s-item{padding:16px 0;border-top:1px solid var(--line)}
-.s-item .nm{margin-bottom:2px}
-ul.tips{padding-left:20px;margin:0}
-ul.tips li{margin:0 0 10px;max-width:64ch}
-footer{padding:48px 0 56px;color:var(--muted)}
-footer p{margin:0}
-@media (max-width:620px){.row{grid-template-columns:1fr}body{font-size:16px}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-</style>
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 <header class="hero">
@@ -114,6 +48,7 @@ footer p{margin:0}
 <a href="#upgrades" data-page="upgrades">Chord upgrades</a>
 <a href="#strum" data-page="strum">Strumming</a>
 <a href="#team" data-page="team">Playing with a team</a>
+<a href="resources/index.html">Resources</a>
 </nav></aside>
 <main>
 
@@ -189,97 +124,6 @@ footer p{margin:0}
 </div>
 <footer class="wrap"><p>Soli Deo gloria.</p></footer>
 
-<script>
-(function(){
-var SHARP=["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
-var FLAT=["C","Db","D","Eb","E","F","Gb","G","Ab","A","Bb","B"];
-var KEYS=[["C",0],["D",2],["E",4],["F",5],["G",7],["A",9],["Bb",10]];
-var FLATKEYS=[5,10,3,8];
-var key=7;
-var CH={"I":[0,""],"ii":[2,"m"],"iii":[4,"m"],"IV":[5,""],"V":[7,""],"vi":[9,"m"],"iv":[5,"m"],"I7":[0,"7"]};
-var PROGS=[
-["The classic","I V vi IV","Anthemic and uplifting"],
-["The emotional one","vi IV I V","Reflective, heartfelt"],
-["Simple and strong","I IV V","Hymn-like, congregational"],
-["Gentle build","I vi IV V","Warm and prayerful"],
-["Rising praise","IV I V vi","Open and celebratory"],
-["Slow and worshipful","I iii IV V","Tender and flowing"]];
-var HYMNS=[
-["Amen ending","IV I","Plagal cadence, the sound of \u201cAmen\u201d"],
-["Resolving a verse","V I","The strongest way home"],
-["Turnaround","I vi ii V","Hymn verses and transitions"],
-["Gospel feel","I I7 IV iv I","Traditional and gospel style"],
-["12-bar style","I I I I / IV IV I I / V IV I I","Upbeat gospel and praise"]];
-var STRUMS=[
-["Slow ballad","60\u201370 BPM","D,,D,D,,U,,D,U".split(","),["D","","D","","D","U","","U"],"Communion, reflective songs"],
-["Mid-tempo","70\u201390 BPM",null,["D","","D","U","","U","D","U"],"Most worship songs"],
-["Driving","90\u2013120 BPM",null,["D","D","D","U","","U","D","U"],"Upbeat praise"],
-["Hymn style","80\u2013100 BPM",null,["D","","D","","D","","D",""],"Traditional hymns"]];
-STRUMS[0][3]=["D","","D","","D","U","","U"];
-
-function nm(i){var a=FLATKEYS.indexOf(key)>-1?FLAT:SHARP;return a[((i%12)+12)%12]}
-function chord(tok){var d=CH[tok];return nm(key+d[0])+d[1]}
-function chips(seq){
-  return seq.split(" ").map(function(t){
-    if(t==="/")return '<span class="slash" aria-hidden="true">/</span>';
-    return '<span class="c">'+chord(t)+'</span>';
-  }).join("");
-}
-function num(s){var M={"I":"1","ii":"2m","iii":"3m","IV":"4","V":"5","vi":"6m","iv":"4m","I7":"1<sup>7</sup>"};return s.split(" ").map(function(t){return M[t]||t}).join(" ")}
-function rows(list,id){
-  document.getElementById(id).innerHTML=list.map(function(p){
-    return '<div class="row"><div class="nm">'+p[0]+'<small>'+p[2]+'</small></div><div class="ch">'+chips(p[1])+'<div class="nums">'+num(p[1])+'</div></div></div>';
-  }).join("");
-}
-function scale(){
-  var degs=[["1",0,""],["2m",2,"m"],["3m",4,"m"],["4",5,""],["5",7,""],["6m",9,"m"],["7\u00b0",11,"dim"]];
-  var h='<tr><th>Number</th>'+degs.map(function(d){return '<th>'+d[0]+'</th>'}).join("")+'</tr><tr><td class="maj">Chord</td>';
-  h+=degs.map(function(d,i){return '<td class="'+(i==0||i==3||i==4?'hl':'')+'"><b>'+nm(key+d[1])+d[2]+'</b></td>'}).join("")+'</tr>';
-  document.getElementById("scaleTbl").innerHTML=h;
-}
-function capo(){
-  var shapes=[["G",7],["D",2],["C",0],["A",9],["E",4]];
-  var h='<tr><th>Play shapes in</th><th>Capo fret</th><th>First chords</th></tr>';
-  shapes.forEach(function(s){
-    var f=((key-s[1])%12+12)%12;
-    var easy=f<=4;
-    var I=SHARP[s[1]],IV=SHARP[(s[1]+5)%12],V=SHARP[(s[1]+7)%12],vi=SHARP[(s[1]+9)%12]+"m";
-    h+='<tr><td>'+s[0]+' shapes</td><td class="'+(easy?'easy':'')+'">'+(f===0?"No capo":"Fret "+f)+(f>5?" (high)":"")+'</td><td>'+I+" \u00b7 "+IV+" \u00b7 "+V+" \u00b7 "+vi+'</td></tr>';
-  });
-  document.getElementById("capoTbl").innerHTML=h;
-}
-function strums(){
-  var lab=["1","&","2","&","3","&","4","&"];
-  document.getElementById("strums").innerHTML=STRUMS.map(function(s){
-    var cells=lab.map(function(l){return '<span class="cnt">'+l+'</span>'}).join("")+s[3].map(function(c){return '<span class="'+(c?'':'off')+'">'+(c||"\u2013")+'</span>'}).join("");
-    return '<div class="s-item"><div class="nm">'+s[0]+'<small>'+s[1]+' \u00b7 '+s[4]+'</small></div><div class="strum" role="img" aria-label="'+s[3].map(function(c){return c||"rest"}).join(", ")+'">'+cells+'</div></div>';
-  }).join("");
-}
-function paint(){
-  rows(PROGS,"progs");rows(HYMNS,"hym");scale();capo();
-  var n=nm(key);
-  [].forEach.call(document.querySelectorAll("[data-key]"),function(e){e.textContent=n});
-  [].forEach.call(document.querySelectorAll("#keys button"),function(b){b.setAttribute("aria-pressed",String(+b.dataset.k===key))});
-}
-var kb=document.getElementById("keys");
-KEYS.forEach(function(k){
-  var b=document.createElement("button");b.textContent=k[0];b.dataset.k=k[1];
-  b.addEventListener("click",function(){key=k[1];paint();try{localStorage.setItem("wk",String(key))}catch(e){}});
-  kb.appendChild(b);
-});
-try{var s=localStorage.getItem("wk");if(s!==null&&KEYS.some(function(k){return k[1]===+s}))key=+s}catch(e){}
-strums();paint();
-var pages=[].slice.call(document.querySelectorAll(".page")),links=[].slice.call(document.querySelectorAll("#menu a"));
-function show(id,push){
-  if(!pages.some(function(p){return p.id===id}))id="progressions";
-  pages.forEach(function(p){p.classList.toggle("on",p.id===id)});
-  links.forEach(function(a){if(a.dataset.page===id)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
-  if(push){try{history.replaceState(null,"","#"+id)}catch(e){}window.scrollTo(0,0)}
-}
-links.forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();show(a.dataset.page,true)})});
-window.addEventListener("hashchange",function(){show(location.hash.slice(1))});
-show(location.hash.slice(1));
-})();
-</script>
+<script src="assets/app.js"></script>
 </body>
 </html>
