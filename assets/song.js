@@ -4,8 +4,10 @@ var SHARP=["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"],FLAT=["C","Db",
 var KEYS=[["C",0],["D",2],["E",4],["F",5],["G",7],["A",9],["Bb",10]],FLATKEYS=[5,10,3,8],OFF=[0,2,4,5,7,9,11];
 var key=0;KEYS.forEach(function(k){if(k[0]===S.key)key=k[1]});
 function nm(i){return (FLATKEYS.indexOf(key)>-1?FLAT:SHARP)[((i%12)+12)%12]}
-function chord(t){var m=t.match(/^([1-7])(m?)([^\/]*)(?:\/([1-7]))?$/);if(!m)return t;
-  var r=nm(key+OFF[m[1]-1])+m[2]+m[3];if(m[4])r+="/"+nm(key+OFF[m[4]-1]);return r}
+function acc(a){return (a==="b"||a==="\u266d")?-1:(a==="#"||a==="\u266f")?1:0}
+function chord(t){var m=t.match(/^([b#\u266d\u266f]?)([1-7])(m?)([^\/]*)(?:\/([b#\u266d\u266f]?)([1-7]))?$/);if(!m)return t;
+  var r=nm(key+OFF[m[2]-1]+acc(m[1]))+m[3]+m[4];if(m[6])r+="/"+nm(key+OFF[m[6]-1]+acc(m[5]));return r}
+function show(c){return c.replace(/b(?=[1-7])/g,"\u266d").replace(/#(?=[1-7])/g,"\u266f")}
 function render(){
   document.getElementById("chart").innerHTML=S.sections.map(function(s){
     return '<div class="sec"><h3>'+s.name+'</h3>'+s.lines.map(function(l){

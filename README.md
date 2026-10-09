@@ -1,6 +1,4 @@
-Worship chord cheat sheet - GitHub Pages site
-
-Upload everything in this folder to a GitHub repo, then turn on Pages (Settings > Pages > Deploy from branch).
+Worship chord cheat sheet and resources
 
 To add a song:
 1. Copy resources/_song-template.html to resources/your-song-name.html
