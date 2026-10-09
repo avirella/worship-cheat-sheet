@@ -1,6 +1,6 @@
 (function(){
 var S=window.SONG;
-Shell.mount({base:"../",current:"resources",keybar:true,main:"<p><a href=\"index.html\">&larr; All resources</a></p><h2 id=\"songTitle\"></h2><p class=\"lead\" id=\"songMeta\"></p><div class=\"capobox\"><div class=\"kv\"><span>Key</span><b id=\"kKey\"></b></div><div class=\"kv\"><span>Capo</span><b id=\"kCapo\"></b></div></div><div class=\"shapes\"><span>Play shapes in</span><div class=\"keys\" id=\"shapes\"></div></div><div id=\"chart\"></div><p class=\"lead\" style=\"margin-top:18px\">Chords shown are the shapes you play with the capo. Pick a key above and the capo changes so the song sounds in that key.</p>"});
+if(window.Shell&&!document.getElementById("chart"))Shell.mount({base:"../",current:"resources",keybar:true,main:"<p><a href=\"index.html\">&larr; All resources</a></p><h2 id=\"songTitle\"></h2><p class=\"lead\" id=\"songMeta\"></p><div class=\"capobox\"><div class=\"kv\"><span>Key</span><b id=\"kKey\"></b></div><div class=\"kv\"><span>Capo</span><b id=\"kCapo\"></b></div></div><div class=\"shapes\"><span>Play shapes in</span><div class=\"keys\" id=\"shapes\"></div></div><div id=\"chart\"></div><p class=\"lead\" style=\"margin-top:18px\">Chords shown are the shapes you play with the capo. Pick a key above and the capo changes so the song sounds in that key.</p>"});
 var SHARP=["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"],FLAT=["C","Db","D","Eb","E","F","Gb","G","Ab","A","Bb","B"];
 var KEYS=[["C",0],["D",2],["E",4],["F",5],["G",7],["A",9],["Bb",10]],FLATKEYS=[5,10,3,8],OFF=[0,2,4,5,7,9,11];
 var key=0;KEYS.forEach(function(k){if(k[0]===S.key)key=k[1]});
@@ -15,8 +15,9 @@ function chord(t){var m=t.match(/^([b#\u266d\u266f]?)([1-7])(m?)([^\/]*)(?:\/([b
 function show(c){return c.replace(/b(?=[1-7])/g,"\u266d").replace(/#(?=[1-7])/g,"\u266f")}
 function capo(){
   var f=((key-shape)%12+12)%12;
-  document.getElementById("kKey").textContent=nm(key);
-  document.getElementById("kCapo").textContent=f===0?"None":f+(f>5?" (high)":"");
+  var kk=document.getElementById("kKey"),kc=document.getElementById("kCapo");
+  if(kk)kk.textContent=nm(key);
+  if(kc)kc.textContent=f===0?"None":f+(f>5?" (high)":"");
   [].forEach.call(document.querySelectorAll("#shapes button"),function(b){b.setAttribute("aria-pressed",String(+b.dataset.k===shape))});
 }
 function render(){
@@ -35,7 +36,7 @@ var kb=document.getElementById("keys");
 KEYS.forEach(function(k){var b=document.createElement("button");b.textContent=k[0];b.dataset.k=k[1];
   b.addEventListener("click",function(){key=k[1];render()});kb.appendChild(b)});
 var sb=document.getElementById("shapes");
-SH.forEach(function(x){var b=document.createElement("button");b.textContent=x[0];b.dataset.k=x[1];
+if(sb)SH.forEach(function(x){var b=document.createElement("button");b.textContent=x[0];b.dataset.k=x[1];
   b.addEventListener("click",function(){shape=x[1];render()});sb.appendChild(b)});
 render();
 })();
