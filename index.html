@@ -6,7 +6,7 @@
 <title>Worship Guitar Chord Cheat Sheet</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Young+Serif&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Young+Serif&family=Alfa+Slab+One&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#F3F5F8;--ink:#1B2A41;--muted:#55637A;--line:#D3DAE5;--accent:#2B4C9B;--gold:#B9812A;--chip:#E4EAF4;--chip-on:#2B4C9B;--chip-on-ink:#fff;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -19,6 +19,13 @@ body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Figtree,sy
 header{padding:48px 0 24px}
 h1{font:400 clamp(2rem,6vw,3.1rem)/1.1 "Young Serif",Georgia,serif;margin:0 0 12px;letter-spacing:-.01em}
 header p{margin:0;max-width:56ch;color:var(--muted);font-size:1.05rem}
+.hero{position:relative;overflow:hidden;color:#F5E9D4;padding:22px 0 20px;border-bottom:4px solid #B9812A;background:radial-gradient(ellipse 40% 95% at 80% 55%,rgba(255,176,80,.4),transparent 70%),radial-gradient(ellipse 120% 100% at 50% 50%,transparent 45%,rgba(0,0,0,.65)),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.006 .5' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.1 -.35'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E"),repeating-linear-gradient(180deg,rgba(0,0,0,.55) 0 3px,rgba(255,255,255,.05) 3px 5px,transparent 5px 70px),repeating-linear-gradient(180deg,#3A2516 0 70px,#43291A 70px 140px,#33200F 140px 210px)}
+.hero-in{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:16px;align-items:center;position:relative}
+.hero h1{font:400 clamp(1.8rem,5vw,2.6rem)/1.02 "Alfa Slab One","Young Serif",Georgia,serif;margin:0 0 8px;color:#F5E9D4;text-shadow:3px 3px 0 #1A0E06}
+.hero h1 span{display:block;font-size:.5em;color:#E0A04A;margin-top:6px}
+.hero p{color:#E5D5B8;max-width:46ch;font-size:.98rem;line-height:1.45}
+.guitar{width:400px;height:auto;justify-self:end;transform:rotate(-5deg) translateY(4px);filter:drop-shadow(8px 14px 14px rgba(0,0,0,.6))}
+@media (max-width:860px){.hero{padding:22px 0 20px}.hero-in{grid-template-columns:1fr}.guitar{position:absolute;right:-60px;top:-6px;width:300px;opacity:.35;pointer-events:none}}
 .layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:0 44px;align-items:start}
 .side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 66px);padding:28px 0}
 .side a{display:block;padding:10px 14px;border-left:3px solid var(--line);color:var(--ink);text-decoration:none;font-weight:500}
@@ -69,9 +76,29 @@ footer p{margin:0}
 </style>
 </head>
 <body>
-<header class="wrap">
-  <h1>Worship guitar chord cheat sheet</h1>
-  <p>Progressions, capo shortcuts, and playing tips for church guitarists. Pick a key below and every chord on the page updates.</p>
+<header class="hero">
+  <div class="wrap hero-in">
+    <div>
+      <h1>Worship guitar<span>chord cheat sheet</span></h1>
+      <p>Progressions, capo shortcuts, and playing tips for church guitarists. Pick a key below and every chord on the page updates.</p>
+    </div>
+    <svg class="guitar" viewBox="-30 -210 540 220" aria-hidden="true" focusable="false">
+      <defs><radialGradient id="gt" cx="50%" cy="62%" r="60%"><stop offset="0" stop-color="#EDB964"/><stop offset=".5" stop-color="#B8742E"/><stop offset="1" stop-color="#52300F"/></radialGradient></defs>
+      <g transform="rotate(-90)">
+      <rect x="88" y="30" width="24" height="230" fill="#3A2210"/>
+      <path d="M85 34L115 34L119 -14Q100 -24 81 -14Z" fill="#2B190C"/>
+      <g fill="#D8C08A"><circle cx="76" cy="-6" r="4"/><circle cx="76" cy="9" r="4"/><circle cx="76" cy="24" r="4"/><circle cx="124" cy="-6" r="4"/><circle cx="124" cy="9" r="4"/><circle cx="124" cy="24" r="4"/></g>
+      <rect x="90" y="34" width="20" height="215" fill="#160C05"/>
+      <path d="M90 58H110M90 86H110M90 112H110M90 136H110M90 158H110M90 178H110M90 196H110M90 213H110M90 228H110" stroke="#CDB880" stroke-width="1.4"/>
+      <rect x="90" y="34" width="20" height="3" fill="#EADFC4"/>
+      <path d="M100 228C140 228 164 250 160 288C158 315 140 328 150 350C178 372 192 400 186 432C178 488 140 500 100 500C60 500 22 488 14 432C8 400 22 372 50 350C60 328 42 315 40 288C36 250 60 228 100 228Z" fill="url(#gt)" stroke="#1E120A" stroke-width="5"/>
+      <circle cx="100" cy="318" r="36" fill="none" stroke="#F0D9A8" stroke-width="2" opacity=".7"/>
+      <circle cx="100" cy="318" r="31" fill="#120A05" stroke="#3A2210" stroke-width="3"/>
+      <rect x="72" y="440" width="56" height="11" rx="3" fill="#24130A"/>
+      <g stroke="#EDE6D4" stroke-width="1" opacity=".85"><path d="M92 37L76 446M95.2 37L85.6 446M98.4 37L95.2 446M101.6 37L104.8 446M104.8 37L114.4 446M108 37L124 446"/></g>
+</g>
+    </svg>
+  </div>
 </header>
 
 <div class="keybar" role="group" aria-label="Choose a key">
