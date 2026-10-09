@@ -9,8 +9,8 @@ body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Figtree,sy
 header{padding:48px 0 24px}
 h1{font:400 clamp(2rem,6vw,3.1rem)/1.1 "Young Serif",Georgia,serif;margin:0 0 12px;letter-spacing:-.01em}
 header p{margin:0;max-width:56ch;color:var(--muted);font-size:1.05rem}
-.hero{position:relative;overflow:hidden;color:#F5E9D4;padding:22px 0 20px;border-bottom:4px solid #B9812A;background:radial-gradient(ellipse 40% 95% at 80% 55%,rgba(255,176,80,.4),transparent 70%),radial-gradient(ellipse 120% 100% at 50% 50%,transparent 45%,rgba(0,0,0,.65)),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.006 .5' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.1 -.35'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E"),repeating-linear-gradient(180deg,rgba(0,0,0,.55) 0 3px,rgba(255,255,255,.05) 3px 5px,transparent 5px 70px),repeating-linear-gradient(180deg,#3A2516 0 70px,#43291A 70px 140px,#33200F 140px 210px)}
-.hero-in{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:16px;align-items:center;position:relative}
+.hero{position:relative;overflow:hidden;color:#F5E9D4;display:flex;align-items:center;min-height:360px;padding:22px 0 20px;border-bottom:4px solid #B9812A;background:radial-gradient(ellipse 40% 95% at 80% 55%,rgba(255,176,80,.4),transparent 70%),radial-gradient(ellipse 120% 100% at 50% 50%,transparent 45%,rgba(0,0,0,.65)),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.006 .5' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.1 -.35'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E"),repeating-linear-gradient(180deg,rgba(0,0,0,.55) 0 3px,rgba(255,255,255,.05) 3px 5px,transparent 5px 70px),repeating-linear-gradient(180deg,#3A2516 0 70px,#43291A 70px 140px,#33200F 140px 210px)}
+.hero-in{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;align-items:center;position:relative;z-index:1}
 .hero h1{font:400 clamp(1.8rem,5vw,2.6rem)/1.02 "Alfa Slab One","Young Serif",Georgia,serif;margin:0 0 8px;color:#F5E9D4;text-shadow:3px 3px 0 #1A0E06}
 .hero h1 span{display:block;font-size:.5em;color:#E0A04A;margin-top:6px}
 .hero p{color:#E5D5B8;max-width:46ch;font-size:.98rem;line-height:1.45}
@@ -76,3 +76,11 @@ main a{color:var(--accent)}
 .ln{margin-bottom:14px}
 .ln p{margin:6px 0 0;color:var(--muted)}
 .meta{margin:0 0 4px;color:var(--muted)}
+
+.hero::before,.hero::after{content:"";position:absolute;top:0;bottom:0;z-index:0;pointer-events:none;background-repeat:no-repeat}
+.hero::before{left:0;right:0;margin:0 auto;width:min(100%,1100px);background-image:url(img/taylor.jpg);background-size:cover;background-position:center 60%;filter:brightness(.55) saturate(1.1);opacity:.9;-webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent)}
+.hero::after{right:0;width:245px;background-image:url(img/poster.jpg);background-size:100% auto;background-position:top center;opacity:.92;-webkit-mask-image:linear-gradient(90deg,transparent,#000 25%);mask-image:linear-gradient(90deg,transparent,#000 25%)}
+.verse{position:absolute;z-index:2;right:max(20px,calc((100% - 1060px)/2 + 20px));bottom:12px;font:400 1rem/1 "Young Serif",Georgia,serif;color:#F5E9D4;background:rgba(20,10,4,.75);border:1px solid rgba(224,160,74,.75);padding:6px 12px;border-radius:4px;text-shadow:1px 1px 0 #000}
+@media (max-width:860px){.hero::after{width:min(52%,230px);opacity:.4}.hero{padding-bottom:48px;min-height:340px}}
+
+.hero .hero-in{width:100%}
