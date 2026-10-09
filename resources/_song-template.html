@@ -3,49 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Song chords</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Young+Serif&family=Alfa+Slab+One&display=swap" rel="stylesheet">
+<title>Song title</title>
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-<header class="hero">
-  <div class="wrap hero-in">
-    <div>
-      <h1>Worship guitar<span>chord cheat sheet</span></h1>
-      <p>Progressions, capo shortcuts, and playing tips for church guitarists. Pick a key below and every chord on the page updates.</p>
-    </div>
-  </div>
-  <div class="verse">Genesis 2:7</div>
-</header>
-<div class="keybar" role="group" aria-label="Choose a key">
-  <div class="wrap"><b>Key</b><div class="keys" id="keys"></div></div>
-</div>
-<div class="wrap layout">
-<aside class="side"><nav id="menu" aria-label="Pages">
-<a href="../index.html#progressions" data-page="progressions">Progressions</a>
-<a href="../index.html#hymns" data-page="hymns">Hymn staples</a>
-<a href="../index.html#scale" data-page="scale">Chords in this key</a>
-<a href="../index.html#capo" data-page="capo">Capo shortcuts</a>
-<a href="../index.html#upgrades" data-page="upgrades">Chord upgrades</a>
-<a href="../index.html#strum" data-page="strum">Strumming</a>
-<a href="../index.html#team" data-page="team">Playing with a team</a>
-<a href="../resources/index.html" aria-current="page">Resources</a>
-</nav></aside>
-<main>
-<section class="page on">
-<p><a href="index.html">&larr; All resources</a></p>
-<h2 id="songTitle"></h2>
-<p class="lead" id="songMeta"></p>
-<div class="capobox"><div class="kv"><span>Key</span><b id="kKey"></b></div><div class="kv"><span>Capo</span><b id="kCapo"></b></div></div>
-<div class="shapes"><span>Play shapes in</span><div class="keys" id="shapes"></div></div>
-<div id="chart"></div>
-<p class="lead" style="margin-top:18px">Chords shown are the shapes you play with the capo. Pick a key above and the capo changes so the song sounds in that key.</p>
-</section>
-</main>
-</div>
-<footer class="wrap"><p>Soli Deo gloria.</p></footer>
+<!-- Only the details below are yours to edit. The page layout lives in ../assets/, so site updates never touch this file. -->
 <script>
 window.SONG={
   title: "Song title",
@@ -61,6 +23,7 @@ window.SONG={
   ]
 };
 </script>
+<script src="../assets/shell.js"></script>
 <script src="../assets/song.js"></script>
 </body>
 </html>

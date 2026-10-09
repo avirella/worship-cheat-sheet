@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Young+Serif&family=Alfa+Slab+One&display=swap");
 :root{--bg:#F3F5F8;--ink:#1B2A41;--muted:#55637A;--line:#D3DAE5;--accent:#2B4C9B;--gold:#B9812A;--chip:#E4EAF4;--chip-on:#2B4C9B;--chip-on-ink:#fff;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#151A23;--ink:#E7ECF4;--muted:#9AA8BD;--line:#2B3546;--accent:#8FADEF;--gold:#E0B060;--chip:#232C3B;--chip-on:#8FADEF;--chip-on-ink:#10141C}}

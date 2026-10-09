@@ -1,5 +1,6 @@
 (function(){
 var S=window.SONG;
+Shell.mount({base:"../",current:"resources",keybar:true,main:"<p><a href=\"index.html\">&larr; All resources</a></p><h2 id=\"songTitle\"></h2><p class=\"lead\" id=\"songMeta\"></p><div class=\"capobox\"><div class=\"kv\"><span>Key</span><b id=\"kKey\"></b></div><div class=\"kv\"><span>Capo</span><b id=\"kCapo\"></b></div></div><div class=\"shapes\"><span>Play shapes in</span><div class=\"keys\" id=\"shapes\"></div></div><div id=\"chart\"></div><p class=\"lead\" style=\"margin-top:18px\">Chords shown are the shapes you play with the capo. Pick a key above and the capo changes so the song sounds in that key.</p>"});
 var SHARP=["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"],FLAT=["C","Db","D","Eb","E","F","Gb","G","Ab","A","Bb","B"];
 var KEYS=[["C",0],["D",2],["E",4],["F",5],["G",7],["A",9],["Bb",10]],FLATKEYS=[5,10,3,8],OFF=[0,2,4,5,7,9,11];
 var key=0;KEYS.forEach(function(k){if(k[0]===S.key)key=k[1]});
