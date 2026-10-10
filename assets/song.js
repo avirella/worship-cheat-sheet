@@ -40,3 +40,33 @@ if(sb)SH.forEach(function(x){var b=document.createElement("button");b.textConten
   b.addEventListener("click",function(){shape=x[1];render()});sb.appendChild(b)});
 render();
 })();
+
+/* Auto-scroll: tap to start, tap again to go faster, Stop to end. Touching or scrolling the page also stops it. */
+(function(){
+var SPEEDS=[20,40,70,110,160],lvl=0,raf=0,last=0,acc=0;
+var st=document.createElement("style");
+st.textContent=".autoscroll{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,calc(env(safe-area-inset-bottom,0px) + 8px));z-index:6;display:flex;gap:8px}"+
+".autoscroll button{font:500 .95rem Figtree,system-ui,sans-serif;min-height:44px;padding:0 16px;border:0;border-radius:999px;background:var(--chip-on);color:var(--chip-on-ink);cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.35)}"+
+"#asStop{background:var(--chip);color:var(--ink)}.autoscroll button[hidden]{display:none}";
+document.head.appendChild(st);
+document.body.insertAdjacentHTML("beforeend",'<div class="autoscroll" id="autoscroll"><button type="button" id="asStop" hidden>Stop</button><button type="button" id="asGo">Auto-scroll</button></div>');
+var go=document.getElementById("asGo"),stp=document.getElementById("asStop");
+function label(){
+  go.textContent=lvl===0?"Auto-scroll":lvl===SPEEDS.length?"Speed "+lvl+" (max)":"Speed "+lvl+" +";
+  go.setAttribute("aria-label",lvl===0?"Start auto-scroll":"Auto-scroll speed "+lvl+" of "+SPEEDS.length+(lvl<SPEEDS.length?", tap for faster":""));
+  stp.hidden=lvl===0;
+}
+function tick(t){
+  if(!lvl)return;
+  if(last){acc+=SPEEDS[lvl-1]*(t-last)/1000;var d=Math.floor(acc);if(d>0){window.scrollBy({top:d,left:0,behavior:"instant"});acc-=d}}
+  last=t;
+  if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-2){stop();return}
+  raf=requestAnimationFrame(tick);
+}
+function stop(){lvl=0;cancelAnimationFrame(raf);raf=0;label()}
+go.addEventListener("click",function(){if(lvl<SPEEDS.length)lvl++;label();if(!raf){last=0;acc=0;raf=requestAnimationFrame(tick)}});
+stp.addEventListener("click",stop);
+function user(e){if(lvl&&!(e.target.closest&&e.target.closest("#autoscroll")))stop()}
+["wheel","touchstart","keydown"].forEach(function(n){window.addEventListener(n,user,{passive:true})});
+label();
+})();
