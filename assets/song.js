@@ -1,6 +1,6 @@
 (function(){
 var S=window.SONG;
-if(window.Shell&&!document.getElementById("chart"))Shell.mount({base:"../",current:"resources",keybar:true,main:"<p><a href=\"index.html\">&larr; All resources</a></p><h2 id=\"songTitle\"></h2><p class=\"lead\" id=\"songMeta\"></p><div class=\"capobox\"><div class=\"kv\"><span>Key</span><b id=\"kKey\"></b></div><div class=\"kv\"><span>Capo</span><b id=\"kCapo\"></b></div></div><div class=\"shapes\"><span>Play shapes in</span><div class=\"keys\" id=\"shapes\"></div></div><div id=\"chart\"></div><p class=\"lead\" style=\"margin-top:18px\">-----</p>"});
+if(window.Shell&&!document.getElementById("chart"))Shell.mount({base:"../",current:"resources",keybar:true,main:"<p><a href=\"index.html\">&larr; All resources</a></p><h2 id=\"songTitle\"></h2><p class=\"lead\" id=\"songMeta\"></p><div class=\"capobox\"><div class=\"kv\"><span>Key</span><b id=\"kKey\"></b></div><div class=\"kv\"><span>Capo</span><b id=\"kCapo\"></b></div></div><div class=\"shapes\"><span>Play shapes in</span><div class=\"keys\" id=\"shapes\"></div></div><div id=\"chart\"></div><p class=\"lead\" style=\"margin-top:18px\">Chords shown are the shapes you play with the capo. Pick a key above and the capo changes so the song sounds in that key.</p>"});
 var SHARP=["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"],FLAT=["C","Db","D","Eb","E","F","Gb","G","Ab","A","Bb","B"];
 var KEYS=[["C",0],["Db",1],["D",2],["Eb",3],["E",4],["F",5],["F#",6],["G",7],["Ab",8],["A",9],["Bb",10],["B",11]],FLATKEYS=[1,3,5,8,10],OFF=[0,2,4,5,7,9,11];
 var key=0;KEYS.forEach(function(k){if(k[0]===S.key)key=k[1]});
@@ -31,6 +31,16 @@ function render(){
 }
 document.getElementById("songTitle").textContent=S.title;
 document.getElementById("songMeta").innerHTML='<span class="meta">'+S.writers+'</span><br><span class="meta">Original key: '+S.key+'. Order: '+S.structure+'.</span>';
+(function(){
+  var L=S.links||[];if(!L.length)return;
+  var host=document.getElementById("songLinks"),m=document.getElementById("songMeta");
+  if(!host){host=document.createElement("div");host.id="songLinks";m.parentNode.insertBefore(host,m.nextSibling)}
+  host.className="songlinks";
+  var st=document.createElement("style");
+  st.textContent=".songlinks{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 6px}.songlinks a{background:var(--chip);color:var(--accent);font-weight:700;text-decoration:none;padding:8px 14px;border-radius:6px}.songlinks a:hover{text-decoration:underline}";
+  document.head.appendChild(st);
+  L.forEach(function(l){var a=document.createElement("a");a.href=l.url;a.textContent=l.text+" \u2197";a.target="_blank";a.rel="noopener";host.appendChild(a)});
+})();
 document.title=S.title+" chords";
 var kb=document.getElementById("keys");
 KEYS.forEach(function(k){var b=document.createElement("button");b.textContent=k[0];b.dataset.k=k[1];
