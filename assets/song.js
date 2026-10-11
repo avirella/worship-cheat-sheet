@@ -30,7 +30,7 @@ function render(){
   [].forEach.call(document.querySelectorAll("#keys button"),function(b){b.setAttribute("aria-pressed",String(+b.dataset.k===key))});
 }
 document.getElementById("songTitle").textContent=S.title;
-document.getElementById("songMeta").innerHTML='<span class="meta">'+S.writers+'</span><br><span class="meta">Original key: '+S.key+'. Order: '+S.structure+'.</span>';
+document.getElementById("songMeta").innerHTML='<span class="meta">'+S.writers+'</span><br><span class="meta">Original key: '+S.key+'.</span><br><span class="meta">Order: '+S.structure+'.</span>';
 (function(){
   var L=S.links||[];if(!L.length)return;
   var host=document.getElementById("songLinks"),m=document.getElementById("songMeta");
