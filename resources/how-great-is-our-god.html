@@ -13,14 +13,16 @@ window.SONG={
   title: "How Great Is Our God",
   writers: "Chris Tomlin, Jesse Reeves, Ed Cash",
   key: "C",
-  shapes: "G", // chord shapes you play: G, D, C, A, or E. The capo is worked out for you. Or use capo: 3 instead.
+  shapes: "C", // chord shapes you play: G, D, C, A, or E. The capo is worked out for you. Or use capo: 3 instead.
   structure: "Verse 1, Chorus, Verse 2, Chorus, Bridge, Chorus",
-  links: [{text: "Listen on YouTube", url: "https://..."}, {text: "Original chart", url: "https://..."}], // links shown at the top of the page. Example: [{text: "Listen on YouTube", url: "https://..."}, {text: "Original chart", url: "https://..."}]
+  // links: [{text: "Listen on YouTube", url: "https://..."}, {text: "Original chart", url: "https://..."}], // links shown at the top of the page. Example: [{text: "Listen on YouTube", url: "https://..."}, {text: "Original chart", url: "https://..."}]
   sections: [
     // c = chords as numbers (1 = key chord, m = minor, 1/7 = slash chord, b7 = flat seventh). t = lyric line (optional).
-    {name: "Verse", lines: [{c: "1 6m", t: ""}, {c: "4add9", t: ""}, {c: "1 6m", t: ""}, {c: "4add9", t: ""}]},
-    {name: "Chorus", lines: [{c: "1 1/7", t: ""}, {c: "6m 6m/5", t: ""}, {c: "4add9 5 1", t: ""}]},
-    {name: "Bridge", lines: [{c: "1 1/7 6m 6m/5", t: ""}, {c: "4add9 5 1", t: ""}]}
+    {name: "Intro", lines: [{c: "1 6m7 1sus 5", t: ""}]},
+    {name: "Verse", lines: [{c: "1 6m7 1sus", t: ""}]},
+    {name: "Chorus", lines: [{c: "1 6m7 1sus 5", t: ""}]},
+    {name: "Bridge", lines: [{c: "1 6m7 1sus 5", t: ""}]},
+    {name: "Chorus", lines: [{c: "1 6m7 1sus 5", t: ""}]}
   ]
 };
 </script>
